@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel de empresas - MiCaja+</title>
+  <link rel="stylesheet" href="componentes/formato.css">
+</head>
+<body class="interfaz-empresas" id="role__pagina-crear-empresa__crear_empresa__1">
+
+  <aside id="menu-lateral"></aside>
+
+  <div id="role__wrapper-principal__crear_empresa__4">
+  <!-- HEADER -->
+  <header id="barra-superior">
+        <div>
+            <button type="button" id="boton-menu" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="contenedor-titulo-pagina">
+            <h1 class="titulo-pagina">Panel de empresas</h1>
+        </div>
+    </header>
+
+  <!-- CONTENEDOR PRINCIPAL -->
+  <main id="contenedor-principal">
+
+    <div id="role__barra-navegacion-interna__crear_empresa__7">
+      <a href="dashboard_principal.html" id="role__boton-enlace__crear_empresa__8">
+        <svg width="16" height="16" viewBox="0 0 25 24" fill="none"><path d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="currentColor"/></svg>
+        Volver al listado de empresas
+      </a>
+    </div>
+
+    <!-- TARJETA CABECERA -->
+    <section id="role__tarjetas__tarjeta-introduccion-crear__crear_empresa__9">
+      <h2 id="role__titulo-bloque__crear_empresa__10">¿Cómo deseas iniciar tu empresa?</h2>
+      <p>Selecciona una de las opciones para configurar el inicio de tu contabilidad</p>
+    </section>
+
+    <!-- MALLA DE DOS TARJETAS DE SELECCIÓN -->
+    <div id="role__malla-seleccion-empresa__crear_empresa__11">
+      
+      <!-- Opción 1: Iniciar en blanco -->
+      <section id="role__tarjetas__tarjeta-opcion__crear_empresa__12">
+        <div>
+          <h3 id="role__titulo-bloque__crear_empresa__13">Iniciar en blanco</h3>
+          <p>
+            Crea tu empresa desde cero sin saldos iniciales previos. Ideal para negocios nuevos que empiezan operaciones.
+          </p>
+        </div>
+        <a href="formulario_nueva.html" id="role__boton-principal__crear_empresa__14">
+          Crear empresa
+        </a>
+      </section>
+
+      <!-- Opción 2: Iniciar con saldos históricos -->
+      <section id="role__tarjetas__tarjeta-opcion__crear_empresa__15">
+        <div>
+          <h3 id="role__titulo-bloque__crear_empresa__16">Iniciar con datos de saldos históricos</h3>
+          <p>
+            Configura tu empresa incorporando los saldos y balances acumulados de períodos anteriores o migración contable.
+          </p>
+        </div>
+        <a href="formulario_historico.html" id="role__boton-principal__crear_empresa__17">
+          Crear empresa
+        </a>
+      </section>
+
+    </div>
+
+  </main>
+
+  </div>
+
+  <script src="componentes/menu.js"></script>
+  <script src="componentes/funciones.js"></script>
+</body>
+</html>

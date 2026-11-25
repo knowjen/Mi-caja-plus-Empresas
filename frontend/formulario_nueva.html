@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nueva empresa - MiCaja+</title>
+  <link rel="stylesheet" href="componentes/formato.css">
+</head>
+<body class="interfaz-empresas">
+
+  <!-- MENÚ LATERAL (HAMBURGUESA) -->
+  <aside id="menu-lateral"></aside>
+
+  <div id="role__wrapper-principal__formulario_nueva__3">
+
+    <!-- BARRA SUPERIOR -->
+    <header id="barra-superior">
+        <div>
+            <button type="button" id="boton-menu" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="contenedor-titulo-pagina">
+            <h1 class="titulo-pagina">Crear empresa — Iniciar en blanco</h1>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main id="contenedor-principal">
+
+      <div id="role__barra-navegacion-interna__formulario_nueva__6">
+        <a href="crear_empresa.html" id="role__boton-enlace__formulario_nueva__7">&lsaquo; Volver a crear empresa</a>
+      </div>
+
+      <form id="form-nueva-empresa">
+
+        <!-- TARJETA 1: DATOS GENERALES -->
+        <section id="role__tarjetas__formulario_nueva__8">
+          <div id="role__encabezado-tarjeta-icono__formulario_nueva__9">
+            <div id="role__caja-icono-vacia__formulario_nueva__10">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#011E31" stroke-width="2">
+                <rect x="4" y="2" width="16" height="20" rx="2"></rect>
+                <line x1="9" y1="22" x2="9" y2="2"></line>
+              </svg>
+            </div>
+            <div>
+              <h2 id="role__titulo-bloque__formulario_nueva__11">Datos generales</h2>
+              <p style="margin-bottom: 0;" id="role__descripcion-seccion__formulario_nueva__12">Información legal, ubicación y contacto de la empresa</p>
+            </div>
+          </div>
+
+          <div id="role__malla-formulario__formulario_nueva__13">
+            <div id="role__campo-grupo__formulario_nueva__14">
+              <label for="razon_social">RAZÓN SOCIAL *</label>
+              <input type="text" id="razon_social" name="razon_social" placeholder="Ej. Comercializadora Andina S.A.S." maxlength="150" required>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__15">
+              <label for="nombre_comercial">NOMBRE COMERCIAL</label>
+              <input type="text" id="nombre_comercial" name="nombre_comercial" placeholder="Ej. Andina Store" maxlength="100">
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__16">
+              <label for="tipo_identificacion">TIPO DE IDENTIFICACIÓN</label>
+              <input type="text" id="tipo_identificacion" name="tipo_identificacion" value="NIT" readonly>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__17">
+              <label for="numero_identificacion">NÚMERO DE IDENTIFICACIÓN Y DV *</label>
+              <div id="role__columna-triple-id__formulario_nueva__18">
+                <input type="text" id="numero_identificacion" name="numero_identificacion" placeholder="Ej. 901458782" inputmode="numeric" maxlength="11" pattern="[0-9]{1,11}" title="Ingresa de 1 a 11 dígitos, sin puntos ni guiones." required>
+                <input type="text" id="dv" name="dv" placeholder="DV" inputmode="numeric" maxlength="1" pattern="[0-9]" title="Ingresa un solo dígito entre 0 y 9." aria-label="Dígito de verificación" aria-describedby="mensaje-error-dv" required>
+              </div>
+              <small id="mensaje-error-dv" role="alert" hidden></small>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__19">
+              <label for="pais">PAÍS</label>
+              <input type="text" id="pais" name="pais" value="Colombia" readonly>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__20">
+              <label for="departamento">DEPARTAMENTO *</label>
+              <select id="departamento" name="departamento" required>
+                <option value="" disabled selected>Selecciona un departamento...</option>
+              </select>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__21">
+              <label for="ciudad">CIUDAD / MUNICIPIO *</label>
+              <select id="ciudad" name="ciudad" disabled required>
+                <option value="" disabled selected>Selecciona primero un departamento...</option>
+              </select>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__22">
+              <label for="direccion">DIRECCIÓN *</label>
+              <input type="text" id="direccion" name="direccion" placeholder="Ej. Calle 10 # 12-30" maxlength="200" required>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__23">
+              <label for="telefono">TELÉFONO *</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="Ej. 3001234567" inputmode="numeric" minlength="10" maxlength="10" pattern="[0-9]{10}" title="Ingresa un número telefónico colombiano de 10 dígitos." required>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__24">
+              <label for="correo_electronico">CORREO ELECTRÓNICO PRINCIPAL *</label>
+              <input type="email" id="correo_electronico" name="correo_electronico" placeholder="contacto@empresa.com" maxlength="254" required>
+            </div>
+
+            <div id="role__grupo-mipyme__formulario_nueva__25">
+              <h3 id="role__titulo-bloque__formulario_nueva__26">Clasificación MiPyME</h3>
+              <p id="role__descripcion-seccion__formulario_nueva__27">Ingresa los límites de ingresos y selecciona el sector para calcular el tamaño de empresa.</p>
+              <div id="role__malla-formulario__formulario_nueva__28">
+                <div id="role__campo-grupo__formulario_nueva__29">
+                  <label for="sector_economico_mipyme">SECTOR ECONÓMICO *</label>
+                  <select id="sector_economico_mipyme" name="sector_economico_mipyme" required>
+                    <option value="Manufactura">Manufactura</option>
+                    <option value="Servicios" selected>Servicios</option>
+                    <option value="Comercio">Comercio</option>
+                  </select>
+                </div>
+
+                <div id="role__campo-grupo__campo-ancho-completo__formulario_nueva__30">
+                  <label for="clasificacion_mipyme_resultado">CLASIFICACIÓN / TAMAÑO DE EMPRESA</label>
+                  <div id="role__resultado-mipyme-caja__formulario_nueva__31">
+                    <input type="text" id="clasificacion_mipyme_resultado" value="Ingresa los límites para calcular" readonly>
+                    <span id="badge-tamano-mipyme">Sin calcular</span>
+                  </div>
+                  <div id="role__malla-formulario__formulario_nueva__32">
+                    <div id="role__campo-grupo__formulario_nueva__33">
+                      <label for="clasificacion_minimo_cop">MÍNIMO DEL RANGO (COP) *</label>
+                      <input type="text" id="clasificacion_minimo_cop" name="clasificacion_minimo_cop" inputmode="numeric" pattern="[0-9]{1,3}(\.[0-9]{3})*" title="Ingresa un valor entero igual o mayor a cero." required>
+                    </div>
+                    <div id="role__campo-grupo__formulario_nueva__34">
+                      <label for="clasificacion_maximo_cop">MÁXIMO DEL RANGO (COP)</label>
+                      <input type="text" id="clasificacion_maximo_cop" name="clasificacion_maximo_cop" inputmode="numeric" pattern="[0-9]{1,3}(\.[0-9]{3})*" placeholder="Obligatorio excepto Gran empresa" title="Ingresa un valor entero igual o mayor a cero.">
+                    </div>
+                  </div>
+                  <small id="detalle-rango-mipyme">
+                    Ingresa ambos límites. Para Gran empresa, el máximo puede quedar vacío si el mínimo supera el tope de Mediana.
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TARJETA 2: DATOS TRIBUTARIOS Y ACTIVIDAD -->
+        <section id="role__tarjetas__formulario_nueva__35">
+          <h2 style="margin-bottom: 0.25rem;" id="role__titulo-bloque__formulario_nueva__36">Datos tributarios</h2>
+          <p id="role__descripcion-seccion__formulario_nueva__37">Actividad económica y responsabilidad fiscal</p>
+
+          <div id="role__malla-formulario__formulario_nueva__38">
+            <div id="role__campo-grupo__formulario_nueva__39">
+              <label for="codigo_actividad_economica">CÓDIGO DE ACTIVIDAD ECONÓMICA (CIIU) *</label>
+              <input type="text" id="codigo_actividad_economica" name="codigo_actividad_economica" placeholder="Escribe código o actividad (ej. 6201)..." autocomplete="off" maxlength="120" required>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__40">
+              <label for="regimen_fiscal">RÉGIMEN / RESPONSABILIDAD FISCAL *</label>
+              <select id="regimen_fiscal" name="regimen_fiscal" required>
+                <option value="ORDINARIO" selected>Regimen Ordinario</option>
+                <option value="SIMPLE_RST">Régimen Simple de Tributacion (RST)</option>
+                <option value="RTE_ESAL">Régimen Tributario Especial (RTE)</option>
+                <option value="ESAL">Entidades sin animo de lucro(ESAL)</option>
+              </select>
+            </div>
+            <div id="role__campo-grupo__formulario_nueva__41">
+              <label for="fecha_inicio_fiscal">FECHA DE INICIO FISCAL *</label>
+              <input type="date" id="fecha_inicio_fiscal" name="fecha_inicio_fiscal" required>
+            </div>
+          </div>
+        </section>
+
+        <!-- TARJETA 3: REPRESENTANTE LEGAL -->
+        <section id="role__tarjetas__formulario_nueva__42">
+          <h2 style="margin-bottom: 0.25rem;" id="role__titulo-bloque__formulario_nueva__43">Representante legal</h2>
+          <p id="role__descripcion-seccion__formulario_nueva__44">Datos de identificación del representante legal</p>
+
+          <div id="role__malla-formulario__formulario_nueva__45">
+            <div id="role__campo-grupo__formulario_nueva__46">
+              <label for="nombre_representante">NOMBRES Y APELLIDOS COMPLETOS *</label>
+              <input type="text" id="nombre_representante" name="nombre_representante" placeholder="Ej. Laura Marcela Becerra" maxlength="150" required>
+            </div>
+
+            <div id="role__campo-grupo__formulario_nueva__47">
+              <label for="documento_representante">DOCUMENTO DE IDENTIFICACIÓN *</label>
+              <input type="text" id="documento_representante" name="documento_representante" placeholder="Ej. 1111111111" maxlength="15" required>
+            </div>
+          </div>
+        </section>
+
+        <!-- ACCIONES -->
+        <div id="role__barra-acciones-formulario__formulario_nueva__48">
+          <span id="role__nota-obligatorios__formulario_nueva__49">Los campos marcados con * son obligatorios.</span>
+          <div id="role__grupo-botones-form__formulario_nueva__50">
+            <a href="index.html" id="role__boton-secundario__formulario_nueva__51">Cancelar</a>
+            <button type="submit" id="role__boton-principal__formulario_nueva__52">Guardar empresa</button>
+          </div>
+        </div>
+
+      </form>
+    </main>
+  </div>
+
+  <script src="componentes/municipios.js"></script>
+  <script src="componentes/menu.js"></script>
+  <script src="componentes/funciones.js"></script>
+</body>
+</html>
