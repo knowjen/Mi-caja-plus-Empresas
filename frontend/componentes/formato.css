@@ -1,0 +1,1157 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --fondo-pagina: #E6ECEF;     /* background */
+    --blanco-tarjetas: #F8FAFC;  /* tarjetas */
+    --azul-nocturno: #011E31;    /* títulos secundarios, barra superior, texto de inputs */
+    --texto-oscuro: #0C2333;     /* textos (Empresas) */
+    --verde-menta: #56A396;      /* textos secundarios (Ventas) */
+    --azul-pizarra: #68869A;     /* subtítulos */
+    --azul-oceano: #0C4160;      /* botones, insignia */
+    --azul-hielo: #D7E0EB;       /* bordes de inputs y botones */
+    --fondo-input: #F4F7FA;
+    --blanco: #FFFFFF;
+    --rojo-obligatorio: #B42318;
+    --verde-oscuro: #2F7A6E;     /* texto sobre fondos verde menta claros */
+    --rojo-estado: #D92D20;
+    --ambar: #C26A00;
+    --ambar-claro: #FEF0C7;
+}
+
+/* --- GLOBALES --- */
+
+* {
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+figure {
+    margin: 0;
+    padding: 0;
+
+    & img, & svg {
+        display: block;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, p {
+    margin: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    background: var(--fondo-pagina);
+    color: var(--texto-oscuro);
+    font-family: 'Inter', system-ui, 'Segoe UI', Arial, sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
+
+aside#menu-lateral {
+    background: var(--azul-nocturno);
+    color: var(--blanco);
+    height: 100vh;
+    left: 0;
+    overflow-y: auto;
+    padding: 24px 16px;
+    position: fixed;
+    top: 0;
+    transform: translateX(-100%);
+    width: 230px;
+    z-index: 20;
+
+    & #zona-marca {
+        align-items: center;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 32px;
+
+        & #logo {
+            width: 40px;
+        }
+
+        & #texto-marca {
+            & h2 {
+                font-size: 18px;
+                font-weight: 700;
+            }
+
+            & p {
+                color: var(--azul-hielo);
+                font-size: 12px;
+            }
+        }
+    }
+
+    & nav.navegacion-principal {
+        & > p {
+            color: var(--azul-hielo);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            margin-bottom: 12px;
+            opacity: 0.7;
+        }
+
+        & a {
+            border-radius: 6px;
+            display: block;
+            font-size: 14px;
+            padding: 10px 12px;
+
+            &:hover {
+                background: rgba(255, 255, 255, 0.08);
+            }
+        }
+
+        & li.opcion-menu + li.opcion-menu {
+            margin-top: 4px;
+        }
+
+        /* Opción principal con flecha */
+        & a.enlace-principal {
+            align-items: center;
+            display: flex;
+            justify-content: space-between;
+
+            &::after {
+                border-bottom: 2px solid currentColor;
+                border-right: 2px solid currentColor;
+                content: "";
+                height: 7px;
+                transform: rotate(45deg);
+                width: 7px;
+            }
+        }
+
+        & li.opcion-activa > a.enlace-principal {
+            background: rgba(255, 255, 255, 0.12);
+            font-weight: 600;
+        }
+
+        /* Submenú: cerrado por defecto */
+        & ul.submenu {
+            margin-left: 12px;
+            max-height: 0;
+            overflow: hidden;
+
+            & a {
+                font-size: 13px;
+                opacity: 0.85;
+            }
+
+            & a.enlace-activo {
+                background: rgba(255, 255, 255, 0.12);
+                font-weight: 600;
+                opacity: 1;
+            }
+        }
+
+        /* Submenú abierto */
+        & li.abierta > ul.submenu {
+            margin-top: 4px;
+            max-height: 300px;
+        }
+
+        & li.abierta > a.enlace-principal::after {
+            transform: rotate(-135deg);
+        }
+    }
+}
+
+body.menu-abierto aside#menu-lateral {
+    transform: translateX(0);
+}
+
+header#barra-superior {
+    align-items: center;
+    background: var(--azul-nocturno);
+    color: var(--blanco);
+    display: flex;
+    gap: 24px;
+    height: 84px;
+    padding: 0 20px;
+
+    & button {
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        padding: 0;
+
+        & svg path {
+            stroke: var(--blanco);
+        }
+    }
+
+    & .titulo-pagina {
+        font-size: 22px;
+        font-weight: 700;
+    }
+}
+
+main#contenedor-principal {
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 28px 24px 48px;
+}
+
+/* el menú se queda abierto */
+@media (min-width: 1024px) {
+    body {
+        padding-left: 230px;
+    }
+
+    aside#menu-lateral {
+        transform: none;
+    }
+
+    /* La hamburguesa ya no hace falta */
+    header#barra-superior > div:first-child {
+        display: none;
+    }
+}
+
+/* --- IDS --- */
+
+#form-informacion-empresa {
+    display: block;
+}
+
+/* Tarjeta 1: información principal */
+#tarjeta-info-principal {
+    align-items: center;
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+
+    & .insignia-empresa {
+        align-items: center;
+        background: var(--azul-oceano);
+        border-radius: 8px;
+        color: var(--blanco);
+        display: flex;
+        flex-shrink: 0;
+        font-size: 18px;
+        font-weight: 700;
+        height: 52px;
+        justify-content: center;
+        width: 52px;
+    }
+
+    & .encabezado-principal {
+        & .etiqueta-sobre-titulo {
+            color: var(--azul-pizarra);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        & h2 {
+            font-size: 20px;
+            font-weight: 700;
+            margin: 2px 0;
+        }
+
+        & p {
+            color: var(--azul-nocturno);
+            font-size: 15px;
+        }
+    }
+}
+
+/* Botón volver atras */
+.navegacion-retorno {
+    margin-bottom: 24px;
+
+    & a {
+        display: inline-block;
+    }
+
+    & button {
+        align-items: center;
+        background: transparent;
+        border: none;
+        color: var(--azul-oceano);
+        cursor: pointer;
+        display: flex;
+        font-size: 15px;
+        font-weight: 600;
+        gap: 4px;
+        padding: 0;
+
+        & svg path {
+            fill: var(--azul-oceano);
+        }
+
+        &:hover {
+            opacity: 0.7;
+        }
+    }
+}
+
+/* Tarjetas blancas */
+.tarjeta-blanca,
+.tarjeta-indicador {
+    background-color: var(--blanco-tarjetas);
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+    border: 4px solid white;
+}
+
+.tarjeta-blanca {
+    padding: 20px;
+}
+
+.encabezado-tarjeta {
+    align-items: center;
+    display: flex;
+    gap: 14px;
+    margin-bottom: 22px;
+
+    & .icono-tarjeta {
+        align-items: center;
+        background: var(--blanco);
+        border-radius: 8px;
+        display: flex;
+        flex-shrink: 0;
+        height: 48px;
+        justify-content: center;
+        width: 48px;
+    }
+
+    & h3 {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    & p {
+        color: var(--azul-pizarra);
+        font-size: 13px;
+        margin-top: 2px;
+    }
+}
+
+/* Cuadrícula de campos: 2 columnas */
+.cuadricula-campos {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.campo-formulario {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    & label {
+        color: var(--azul-nocturno);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+    }
+
+    & .obligatorio {
+        color: var(--azul-nocturno);
+    }
+}
+
+/* Tipo + número + DV en una sola fila */
+.grupo-identificacion {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 2fr 2fr 1fr;
+}
+
+/* INPUTS */
+input, select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid var(--azul-hielo);
+            border-radius: 6px;
+            background-color: #F4F7FA;
+            color: var(--azul-nocturno);
+            font-size: 14px;
+            outline: none;
+        }
+
+input:focus, select:focus {
+    border-color: var(--azul-oceano);
+    box-shadow: 0 0 0 3px rgba(12, 65, 96, 0.12);
+}
+
+input:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: var(--rojo-obligatorio);
+}
+
+select {
+    cursor: pointer;
+}
+
+/* Logotipo (zona de carga) */
+.zona-logotipo {
+    align-items: center;
+    background: var(--fondo-input);
+    border: 1px dashed var(--azul-oceano);
+    border-radius: 6px;
+    color: var(--azul-pizarra);
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    font-weight: 600;
+    height: 52px;
+    justify-content: center;
+    width: 100%;
+
+    &:hover {
+        background: var(--blanco);
+        color: var(--azul-oceano);
+    }
+
+    & input[type="file"] {
+        display: none;
+    }
+}
+
+/* Pie del formulario */
+.pie-formulario {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 28px;
+
+    & .nota-obligatorios {
+        color: var(--azul-pizarra);
+        font-size: 13px;
+    }
+}
+
+/* BOTONES */
+.boton-principal,
+#btn-editar-empresa {
+            background-color: var(--azul-oceano);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+.boton-principal:hover,
+#btn-editar-empresa:hover {
+    background-color: var(--azul-nocturno);
+}
+
+.boton-secundario {
+                background-color: #F4F7FA;
+                border: 1px solid var(--azul-hielo);
+                color: var(--azul-pizarra);
+                padding: 10px 18px;
+                border-radius: 6px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+.boton-secundario:hover {
+    background-color: var(--blanco);
+    color: var(--azul-oceano);
+}
+
+/* --- EDITAR --- */
+
+/* Campos bloqueados (solo lectura) */
+input[readonly] {
+    cursor: default;
+}
+
+#form-informacion-empresa select:disabled {
+    appearance: none;
+    background-image: none;
+    color: var(--azul-nocturno);
+    cursor: default;
+    opacity: 1;
+    -webkit-text-fill-color: var(--azul-nocturno);
+}
+
+/* Campos editables */
+#form-informacion-empresa.modo-edicion {
+    & input:not([type="file"]),
+    & select {
+        background-color: var(--blanco);
+        border-color: var(--azul-oceano);
+    }
+
+    & select {
+        appearance: auto;
+        cursor: pointer;
+    }
+}
+
+.acciones-formulario {
+    align-items: center;
+    display: flex;
+    gap: 12px;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* --- DASHBOARD --- */
+
+.etiqueta-sobre-titulo {
+    color: var(--azul-pizarra);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+#tarjeta-panel-general {
+    padding: 28px 30px;
+
+    & h2 {
+        font-size: 26px;
+        font-weight: 700;
+        margin: 8px 0 6px;
+    }
+
+    & .nit-empresa {
+        color: var(--texto-oscuro);
+        font-size: 14px;
+    }
+}
+
+/* Indicadores */
+.cuadricula-indicadores {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    margin-bottom: 20px;
+}
+
+.tarjeta-indicador {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 0;
+    padding: 24px;
+
+    & .titulo-indicador {
+        color: var(--azul-pizarra);
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    & .valor-indicador {
+        color: var(--azul-nocturno);
+        font-size: 28px;
+        font-weight: 700;
+    }
+
+    & .estado-indicador {
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+.texto-verde { color: var(--verde-menta); }
+.texto-rojo { color: var(--rojo-estado); }
+.texto-gris { color: var(--azul-pizarra); }
+
+/* Movimientos y obligaciones */
+.cuadricula-movimientos-obligaciones {
+    display: grid;
+    gap: 24px;
+    grid-template-columns: 1fr 1fr;
+
+    & .tarjeta-blanca {
+        margin-bottom: 0;
+        padding: 24px;
+    }
+}
+
+.encabezado-tarjeta-lista {
+    margin-bottom: 16px;
+
+    & h3 {
+        color: var(--azul-nocturno);
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    & p {
+        color: var(--azul-pizarra);
+        font-size: 14px;
+        margin-top: 4px;
+    }
+}
+
+.lista-detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.fila-detalle {
+    align-items: center;
+    background: var(--fondo-pagina);
+    border-radius: 8px;
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+    padding: 14px 16px;
+
+    & .descripcion-fila {
+        color: var(--texto-oscuro);
+        font-size: 14px;
+    }
+
+    & .monto-fila {
+        color: var(--azul-nocturno);
+        font-size: 14px;
+        font-weight: 700;
+        white-space: nowrap;
+    }
+}
+
+.monto-ingreso { color: var(--azul-nocturno); }
+.monto-egreso { color: var(--ambar); }
+
+.etiqueta-obligacion {
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 4px 10px;
+    white-space: nowrap;
+}
+
+.estado-por-vencer {
+    background: var(--ambar-claro);
+    color: var(--ambar);
+}
+
+.estado-al-dia {
+    background: rgba(86, 163, 150, 0.18);
+    color: var(--verde-oscuro);
+}
+
+@media (max-width: 1023px) {
+    .cuadricula-indicadores {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 899px) {
+    .cuadricula-movimientos-obligaciones {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 599px) {
+    .cuadricula-indicadores {
+        grid-template-columns: 1fr;
+    }
+
+    .fila-detalle {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+}
+
+/* =====================================================================
+   INTERFACES: PANEL DE EMPRESAS, CREAR EMPRESA Y FORMULARIOS
+   (solo afecta a las páginas con <body class="interfaz-empresas">)
+   ===================================================================== */
+
+:where(.interfaz-empresas) *,
+:where(.interfaz-empresas) *::before,
+:where(.interfaz-empresas) *::after {
+    margin: 0;
+    padding: 0;
+}
+
+.interfaz-empresas {
+    line-height: 1.5;
+}
+
+.interfaz-empresas #contenedor-principal {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 4. TARJETAS, INPUTS Y FORMULARIOS */
+[id*="__tarjetas__"] {
+  background-color: var(--blanco-tarjetas);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  border: 4px solid white;
+  padding: 1.5rem;
+}
+
+[id*="__barra-navegacion-interna__"] {
+  display: flex;
+  align-items: center;
+}
+
+[id*="__boton-enlace__"] {
+  background: transparent;
+  border: none;
+  color: var(--azul-oceano);
+  font-weight: 600;
+  font-size: 0.875rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+[id*="__encabezado-tarjeta-icono__"] {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+[id*="__caja-icono-vacia__"] {
+  width: 44px;
+  height: 44px;
+  background-color: var(--fondo-pagina);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[id*="__titulo-bloque__"] {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--azul-nocturno);
+}
+
+[id*="__descripcion-seccion__"] {
+  font-size: 0.82rem;
+  color: var(--azul-pizarra);
+  margin-bottom: 1rem;
+}
+
+select:disabled {
+  background-color: #EBF0F5;
+  color: var(--azul-pizarra);
+  cursor: not-allowed;
+}
+
+[id*="__malla-formulario__"] {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.15rem;
+}
+
+[id*="__campo-grupo__"] {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+[id*="__campo-grupo__"] label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--azul-pizarra);
+  text-transform: uppercase;
+}
+
+[id*="__columna-triple-id__"] {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 0.75rem;
+}
+
+[id*="__barra-acciones-formulario__"] {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+[id*="__nota-obligatorios__"], #nota-formulario {
+  font-size: 0.8rem;
+  color: var(--azul-pizarra);
+}
+
+[id*="__grupo-botones-form__"] {
+  display: flex;
+  gap: 0.75rem;
+}
+
+[id*="__zona-carga-archivo__"] {
+  display: block;
+  border: 2px dashed var(--azul-hielo);
+  border-radius: 8px;
+  padding: 1.25rem;
+  text-align: center;
+  background-color: #F4F7FA;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--azul-pizarra);
+  font-weight: 600;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+[id*="__zona-carga-archivo__"]:hover {
+  border-color: var(--azul-oceano);
+  background-color: #EDF3F8;
+}
+
+/* 5. CLASIFICACIÓN MIPYME (RESULTADO) */
+[id*="__resultado-mipyme-caja__"] {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+#clasificacion_mipyme_resultado {
+  flex: 1 1 240px;
+  min-width: 0;
+  background-color: #EEF3F7;
+  color: var(--azul-nocturno);
+  cursor: default;
+}
+
+#clasificacion_minimo_cop,
+#clasificacion_maximo_cop {
+  font-variant-numeric: tabular-nums;
+}
+
+#badge-tamano-mipyme {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+#badge-tamano-mipyme {
+  background-color: var(--fondo-pagina);
+  color: var(--azul-pizarra);
+}
+
+#detalle-rango-mipyme {
+  font-size: 0.78rem;
+  color: var(--azul-pizarra);
+}
+
+#mensaje-error-dv, #mensaje-error-saldos {
+  color: #B42318;
+  font-size: 0.78rem;
+}
+
+/* 6. AUTOCOMPLETE CIIU */
+[id*="__contenedor-autocomplete__"] {
+  position: relative;
+  width: 100%;
+}
+
+#lista-sugerencias-ciiu, #lista-sugerencias-ciiu-activa {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #FFFFFF;
+  border: 1px solid var(--azul-hielo);
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(1, 30, 49, 0.15);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 9999;
+  display: none;
+  margin-top: 4px;
+}
+
+#lista-sugerencias-ciiu-activa {
+  display: block !important;
+}
+
+#lista-sugerencias-sin-resultados, [id^="opcion-ciiu-"] {
+  padding: 10px 14px;
+  font-size: 13.5px;
+  color: var(--texto-oscuro);
+  cursor: pointer;
+  border-bottom: 1px solid var(--fondo-pagina);
+}
+
+#lista-sugerencias-sin-resultados:hover, #lista-sugerencias-ciiu-activa > div:hover {
+  background-color: var(--fondo-pagina);
+  color: var(--azul-oceano);
+  font-weight: 600;
+}
+
+/* 7. BOTONES UNIFICADOS */
+[id*="__boton-principal__"], #boton-confirmar, a[id*="__boton-principal__"] {
+  background-color: var(--azul-oceano);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+[id*="__boton-principal__"]:hover, a[id*="__boton-principal__"]:hover {
+  background-color: #082d44;
+}
+
+[id*="__boton-secundario__"], #btn-cancelar-edicion, #boton-cancelar, a[id*="__boton-secundario__"], #btn-cancelar-edicion {
+  background-color: #F4F7FA;
+  border: 1px solid var(--azul-hielo);
+  color: var(--azul-pizarra);
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+/* 8. PANEL DE EMPRESAS */
+[id*="__tarjeta-seleccion-superior__"] {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+[id*="__campo-busqueda-contenedor__"] {
+  margin-bottom: 0.5rem;
+}
+
+[id*="__campo-busqueda-contenedor__"] input {
+  background-color: #FFFFFF;
+}
+
+#contenedor-empresas {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+[id*="__tarjeta-empresa-item__"] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 0 !important;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+[id*="__tarjeta-empresa-item__"]:hover {
+  box-shadow: 0 4px 12px rgba(1, 30, 49, 0.08);
+  border-color: var(--azul-hielo);
+}
+
+[id^="info-empresa-"] {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+[id^="avatar-empresa-"] {
+  width: 48px;
+  height: 48px;
+  background-color: var(--azul-nocturno);
+  color: white;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+[id^="nombre-empresa-"] {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--azul-nocturno);
+  margin-bottom: 0.2rem;
+}
+
+[id^="detalles-empresa-"] {
+  font-size: 0.8rem;
+  color: var(--azul-pizarra);
+}
+
+[id^="icono-flecha-"] {
+  color: var(--azul-pizarra);
+  font-weight: bold;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* 9. MEDIA QUERIES (ESCRITORIO) */
+@media (min-width: 768px) {
+  .interfaz-empresas #contenedor-principal {
+    padding: 2rem;
+  }
+
+  [id*="__malla-formulario__"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  [id*="__barra-acciones-formulario__"] {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  [id*="__tarjeta-seleccion-superior__"] {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 2rem;
+  }
+}
+
+[id*="__grupo-mipyme__"] {
+  grid-column: 1 / -1;
+}
+
+[id*="__grupo-mipyme__"] > [id*="__titulo-bloque__"] {
+  margin-bottom: 0.25rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--azul-pizarra);
+  text-transform: uppercase;
+}
+
+[id*="__grupo-mipyme__"] > [id*="__descripcion-seccion__"] {
+  margin-bottom: 1rem;
+}
+
+[id*="__campo-ancho-completo__"], #mensaje-error-saldos {
+  grid-column: 1 / -1;
+}
+
+.interfaz-empresas #contenedor-principal {
+  width: 100%;
+  max-width: 1264px;
+  padding: 2rem 1.25rem;
+  gap: 1.35rem;
+}
+
+[id*="__tarjeta-introduccion-crear__"] {
+  padding: 1.75rem 1.5rem;
+  margin-bottom: 0;
+}
+
+[id*="__tarjeta-introduccion-crear__"] [id*="__titulo-bloque__"] {
+  margin-bottom: 0.35rem;
+  color: var(--azul-nocturno);
+  font-size: 1.25rem;
+}
+
+[id*="__tarjeta-introduccion-crear__"] p {
+  color: var(--azul-pizarra);
+  font-size: 0.9rem;
+}
+
+.interfaz-empresas #contenedor-principal [id*="__malla-seleccion-empresa__"] {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.5rem;
+}
+
+.interfaz-empresas #contenedor-principal [id*="__tarjeta-opcion__"] {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 316px;
+  padding: 2rem 2.2rem;
+  margin-bottom: 0;
+  border: 1px solid #d5e0e8;
+  box-shadow: 0 2px 6px rgba(1, 30, 49, 0.04);
+}
+
+.interfaz-empresas #contenedor-principal [id*="__tarjeta-opcion__"] h3 {
+  margin-bottom: 0.5rem;
+  color: var(--azul-nocturno);
+  font-size: 1.15rem;
+}
+
+.interfaz-empresas #contenedor-principal [id*="__tarjeta-opcion__"] p {
+  margin-bottom: 1.5rem;
+  color: var(--azul-pizarra);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.interfaz-empresas #contenedor-principal [id*="__tarjeta-opcion__"] [id*="__boton-principal__"] {
+  width: 100%;
+  justify-content: center;
+  padding: 12px 18px;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .interfaz-empresas #contenedor-principal {
+    padding: 2rem 1.25rem;
+  }
+
+  .interfaz-empresas #contenedor-principal [id*="__malla-seleccion-empresa__"] {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

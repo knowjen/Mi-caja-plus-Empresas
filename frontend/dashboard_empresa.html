@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard empresa | ADSO 09</title>
+    <link rel="stylesheet" href="componentes/formato.css">
+    
+</head>
+<body>
+
+    <aside id="menu-lateral"></aside>
+
+    <header id="barra-superior">
+        <div>
+            <button type="button" id="boton-menu" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="contenedor-titulo-pagina">
+            <h1 class="titulo-pagina">Dashboard de la empresa</h1>
+        </div>
+    </header>
+
+        <main id="contenedor-principal">
+
+        <!-- Tarjeta Superior: Encabezado de la empresa -->
+        <section class="tarjeta-blanca" id="tarjeta-panel-general">
+            <span class="etiqueta-sobre-titulo">PANEL GENERAL</span>
+            <h2>Soluciones Andinas S.A.S.</h2>
+            <p class="nit-empresa">NIT: 901458782-1</p>
+        </section>
+
+        <!-- Fila Central: 4 Tarjetas de Resumen Financiero (Indicadores) -->
+        <section class="cuadricula-indicadores" id="fila-indicadores">
+            
+            <article class="tarjeta-indicador">
+                <span class="titulo-indicador">Ingresos del Mes</span>
+                <strong class="valor-indicador">$ 48.500.000</strong>
+                <span class="estado-indicador texto-verde">Actualizado</span>
+            </article>
+
+            <article class="tarjeta-indicador">
+                <span class="titulo-indicador">Gastos Operativos</span>
+                <strong class="valor-indicador">$ 19.200.000</strong>
+                <span class="estado-indicador texto-rojo">Actualizado</span>
+            </article>
+
+            <article class="tarjeta-indicador">
+                <span class="titulo-indicador">Facturas Pendientes</span>
+                <strong class="valor-indicador">14</strong>
+                <span class="estado-indicador texto-gris">Por cobrar</span>
+            </article>
+
+            <article class="tarjeta-indicador">
+                <span class="titulo-indicador">Balance General Estimado</span>
+                <strong class="valor-indicador">$ 124.800.000</strong>
+                <span class="estado-indicador texto-verde">Saludable</span>
+            </article>
+
+        </section>
+
+        <!-- Fila Inferior: Dos Columnas (Movimientos y Obligaciones Fiscales) -->
+        <section class="cuadricula-movimientos-obligaciones">
+
+            <!-- Columna Izquierda: Últimos movimientos -->
+            <article class="tarjeta-blanca" id="tarjeta-ultimos-movimientos">
+                <div class="encabezado-tarjeta-lista">
+                    <h3>Últimos movimientos registrados</h3>
+                    <p>Transacciones recientes en el libro diario para esta empresa</p>
+                </div>
+
+                <ul class="lista-detalle">
+                    <li class="fila-detalle">
+                        <span class="descripcion-fila">Factura de Venta #042 - Serv. Desarrollo</span>
+                        <strong class="monto-fila monto-ingreso">+$ 4.500.000</strong>
+                    </li>
+
+                    <li class="fila-detalle">
+                        <span class="descripcion-fila">Pago Proveedores - AWS Cloud</span>
+                        <strong class="monto-fila monto-egreso">-$ 1.200.000</strong>
+                    </li>
+
+                    <li class="fila-detalle">
+                        <span class="descripcion-fila">Recibo de Caja #089 - Anticipo</span>
+                        <strong class="monto-fila monto-ingreso">+$ 2.000.000</strong>
+                    </li>
+                </ul>
+            </article>
+
+            <!-- Columna Derecha: Obligaciones fiscales -->
+            <article class="tarjeta-blanca" id="tarjeta-obligaciones-fiscales">
+                <div class="encabezado-tarjeta-lista">
+                    <h3>Estado de obligaciones fiscales</h3>
+                    <p>Calendario tributario actual DIAN</p>
+                </div>
+
+                <ul class="lista-detalle">
+                    <li class="fila-detalle">
+                        <span class="descripcion-fila">Declaración de IVA (Bimestral)</span>
+                        <span class="etiqueta-obligacion estado-por-vencer">Vence en 5 días</span>
+                    </li>
+
+                    <li class="fila-detalle">
+                        <span class="descripcion-fila">Retención en la Fuente</span>
+                        <span class="etiqueta-obligacion estado-al-dia">Al día</span>
+                    </li>
+                </ul>
+            </article>
+
+        </section>
+
+    </main>
+
+    
+
+  <script src="componentes/menu.js"></script>
+  <script src="componentes/funciones.js"></script>
+</body>
+</html>
