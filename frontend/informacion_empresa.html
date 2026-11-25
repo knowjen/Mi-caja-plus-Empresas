@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información empresa | ADSO 09</title>
+    <link rel="stylesheet" href="componentes/formato.css">
+</head>
+<body>
+
+    <aside id="menu-lateral"></aside>
+
+    <header id="barra-superior">
+        <div>
+            <button type="button" id="boton-menu" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="contenedor-titulo-pagina">
+            <h1 class="titulo-pagina">Información de la empresa</h1>
+        </div>
+    </header>
+
+        <main id="contenedor-principal">
+        
+        <div class="navegacion-retorno">
+            <a href="dashboard_empresa.html" id="volver-dashboard">
+                <button type="button">
+                    <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="#323544"/>
+                    </svg>
+                    <span>Volver al Dashboard</span>
+                </button>
+            </a>
+        </div>
+
+        <form id="form-informacion-empresa" action="#" method="POST" enctype="multipart/form-data">
+            
+            <!-- Tarjeta 1: Información Principal -->
+            <section class="tarjeta-blanca" id="tarjeta-info-principal">
+                <div class="insignia-empresa">
+                    <span>SA</span>
+                </div>
+                <div class="encabezado-principal">
+                    <span class="etiqueta-sobre-titulo">INFORMACIÓN PRINCIPAL</span>
+                    <h2>Soluciones Andinas S.A.S.</h2>
+                    <p>Revisa y actualiza la información legal y tributaria de la empresa.</p>
+                </div>
+            </section>
+
+            <!-- Tarjeta 2: Datos Generales -->
+            <section class="tarjeta-blanca" id="tarjeta-datos-generales">
+                <div class="encabezado-tarjeta">
+                    <div class="icono-tarjeta">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="4" y="2" width="16" height="20" rx="2" ry="2"></rect>
+                            <line x1="9" y1="22" x2="9" y2="2"></line>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Datos generales</h3>
+                        <p>Información legal, ubicación y contacto de la empresa</p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-campos">
+                    
+
+                    <div class="campo-formulario">
+                        <label for="nombre_comercial">NOMBRE COMERCIAL</label>
+                        <input type="text" id="nombre_comercial" name="nombre_comercial" value="Soluciones Andinas">
+                    </div>
+
+                    <div class="grupo-identificacion">
+                        <div class="campo-formulario">
+                            <label for="tipo_identificacion">TIPO DE IDENTIFICACIÓN</label>
+                            <select id="tipo_identificacion" name="tipo_identificacion">
+                                <option value="NIT" selected>NIT</option>
+                                <option value="CC">Cédula de Ciudadanía</option>
+                                <option value="CE">Cédula de Extranjería</option>
+                            </select>
+                        </div>
+
+                        <div class="campo-formulario">
+                            <label for="numero_identificacion">NÚMERO DE IDENTIFICACIÓN <span class="obligatorio">*</span></label>
+                            <input type="text" id="numero_identificacion" name="numero_identificacion" value="901458782" required>
+                        </div>
+
+                        <div class="campo-formulario campo-dv">
+                            <label for="dv">DV <span class="obligatorio">*</span></label>
+                            <input type="text" id="dv" name="dv" value="1" maxlength="1" required>
+                        </div>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="ciudad">CIUDAD <span class="obligatorio">*</span></label>
+                        <input type="text" id="ciudad" name="ciudad" value="Bogotá D.C." required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="direccion">DIRECCIÓN <span class="obligatorio">*</span></label>
+                        <input type="text" id="direccion" name="direccion" value="Calle 93 # 14-26, Oficina 402" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="telefono">TELÉFONO</label>
+                        <input type="tel" id="telefono" name="telefono" value="+57 601 745 2380">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="correo_electronico">CORREO ELECTRÓNICO PRINCIPAL <span class="obligatorio">*</span></label>
+                        <input type="email" id="correo_electronico" name="correo_electronico" value="contabilidad@solucionesandinas.co" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="fecha_saldos">FECHA DE SALDOS INICIALES <span class="obligatorio">*</span></label>
+                        <input type="text" id="fecha_saldos" name="fecha_saldos" value="01/01/2025" required>
+                    </div>
+
+                    
+                </div>
+            </section>
+
+            <!-- Tarjeta 3: Datos Tributarios -->
+            <section class="tarjeta-blanca" id="tarjeta-datos-tributarios">
+                <div class="encabezado-tarjeta">
+                    <div class="icono-tarjeta">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Datos tributarios</h3>
+                        <p>Responsabilidades fiscales y configuración contable</p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-campos">
+
+                    <div class="campo-formulario">
+                        <label for="razon_social">RAZÓN SOCIAL / NOMBRE <span class="obligatorio">*</span></label>
+                        <input type="text" id="razon_social" name="razon_social" value="Soluciones Andinas S.A.S." required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="codigo_ciiu">CÓDIGO DE ACTIVIDAD ECONÓMICA (CIIU) <span class="obligatorio">*</span></label>
+                        <input type="text" id="codigo_ciiu" name="codigo_ciiu" value="6201 — Desarrollo de sistemas informáticos" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="regimen_fiscal">RÉGIMEN / RESPONSABILIDAD FISCAL</label>
+                        <select id="regimen_fiscal" name="regimen_fiscal">
+                            <option value="responsable_iva" selected>Responsable de IVA</option>
+                            <option value="no_responsable_iva">No responsable de IVA</option>
+                            <option value="regimen_simple">Régimen Simple de Tributación</option>
+                        </select>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Tarjeta 4: Representante Legal -->
+            <section class="tarjeta-blanca" id="tarjeta-representante-legal">
+                <div class="encabezado-tarjeta">
+                    <div class="icono-tarjeta">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Representante legal</h3>
+                        <p>Información de la persona que representa legalmente la empresa</p>
+                    </div>
+                </div>
+
+                <div class="cuadricula-campos">
+                    <div class="campo-formulario">
+                        <label for="nombre_representante">NOMBRES Y APELLIDOS COMPLETOS <span class="obligatorio">*</span></label>
+                        <input type="text" id="nombre_representante" name="nombre_representante" value="Carlos Andrés Ramírez Gómez" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="documento_representante">DOCUMENTO DE IDENTIFICACIÓN <span class="obligatorio">*</span></label>
+                        <input type="text" id="documento_representante" name="documento_representante" value="1.015.428.691" required>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pie del formulario -->
+            <div class="pie-formulario">
+                <span class="nota-obligatorios" id="nota-formulario">Los campos marcados con * son obligatorios.</span>
+                <div class="acciones-formulario">
+                    <button type="button" id="btn-cancelar-edicion" class="boton-secundario" hidden>Cancelar</button>
+                    <button type="submit" id="btn-editar-empresa">Editar empresa</button>
+                </div>
+            </div>
+        </form>
+    </main>
+
+
+  <script src="componentes/menu.js"></script>
+  <script src="componentes/funciones.js"></script>
+</body>
+</html>
