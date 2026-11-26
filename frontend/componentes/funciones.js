@@ -338,7 +338,7 @@ const contenedorEmpresas = document.getElementById('contenedor-empresas');
         <div id="info-empresa-${index}">
           <div id="avatar-empresa-${index}" style="background-color: ${colorFondo};">${iniciales}</div>
           <div>
-            <h3 id="nombre-empresa-${index}">${nombre} <span class="${claseEstado}">${textoEstado}</span></h3>
+            <h3 id="nombre-empresa-${index}">${nombre} <span class="etiqueta-obligacion ${claseEstado}">${textoEstado}</span></h3>
             <p id="detalles-empresa-${index}">NIT ${nit}${dv} • ${ciudad}</p>
           </div>
         </div>
