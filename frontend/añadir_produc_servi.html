@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Añadir Artículo - Mi Caja PLUS</title>
+    <link rel="stylesheet" href="componentes/formato.css">
+</head>
+<body class="interfaz-empresas page-anadir-producto" data-menu="servicios_producto.html">
+    <aside id="menu-lateral"></aside>
+    <div id="role__wrapper-principal__anadir_producto__1">
+    <header id="barra-superior">
+        <div>
+            <button type="button" id="boton-menu" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="contenedor-titulo-pagina">
+                <span>Módulo de empresas</span>
+                <h1>Añadir artículo</h1>
+        </div>
+    </header>
+    <main id="contenedor-principal">
+        <div id="navegacion-retorno-articulo">
+            <a href="servicios_producto.html" id="boton-volver-articulos">
+                <svg width="16" height="16" viewBox="0 0 25 24" fill="none" aria-hidden="true"><path d="M15.2335 5.21967C15.5263 5.51256 15.5263 5.98744 15.2335 6.28033L9.51379 12L15.2335 17.7197C15.5263 18.0126 15.5263 18.4874 15.2335 18.7803C14.9406 19.0732 14.4657 19.0732 14.1728 18.7803L7.92279 12.5303C7.6299 12.2374 7.6299 11.7626 7.92279 11.4697L14.1728 5.21967C14.4657 4.92678 14.9406 4.92678 15.2335 5.21967Z" fill="currentColor"/></svg>
+                Volver a Productos/servicios
+            </a>
+        </div>
+        <div id="encabezado-pagina">
+            <span>NUEVO REGISTRO</span>
+            <h2>Información del artículo</h2>
+            <p>Registra un producto o servicio para incluirlo en tus ventas.</p>
+        </div>
+        <div id="mensaje-articulos" role="status" aria-live="polite" hidden></div>
+        <form id="formulario-articulo">
+            
+            <section id="tarjeta-datos-basicos">
+                <div id="cabecera-datos-basicos">
+                    <div id="numero-datos-basicos">1</div>
+                    <div>
+                        <h3>Datos básicos</h3>
+                        <p>Identificación y clasificación</p>
+                    </div>
+                </div>
+                <div id="contenido-datos-basicos">
+                    <div id="campo-codigo-articulo">
+                        <label for="codigo-articulo">Código del ítem <span aria-hidden="true">*</span></label>
+                        <input id="codigo-articulo" name="codigo" type="text" placeholder="Ej. ART-001" required>
+                    </div>
+                    <div id="campo-nombre-articulo">
+                        <label for="nombre-articulo">Nombre del producto o servicio <span aria-hidden="true">*</span></label>
+                        <input id="nombre-articulo" name="nombre" type="text" placeholder="Ej. Impresora térmica POS" required>
+                    </div>
+                    <div id="campo-descripcion-articulo">
+                        <label for="descripcion-articulo">Descripción</label>
+                        <textarea id="descripcion-articulo" name="descripcion" rows="3" placeholder="Características o alcance del servicio"></textarea>
+                    </div>
+                    <div id="campo-tipo-articulo">
+                        <label>Tipo <span aria-hidden="true">*</span></label>
+                        <div id="opciones-tipo-articulo" data-options="type">
+                            <button type="button" aria-pressed="true"><i class="fa-regular fa-circle-dot"></i> Producto</button>
+                            <button type="button" aria-pressed="false"><i class="fa-regular fa-circle"></i> Servicio</button>
+                        </div>
+                    </div>
+                    <div id="campo-subcuenta-articulo">
+                        <label for="subcuenta-articulo">Subcuenta</label>
+                        <input id="subcuenta-articulo" name="subcuenta" type="text" placeholder="Ej. 143505">
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tarjeta-valores-articulo">
+                <div id="cabecera-valores-articulo">
+                    <div id="numero-valores-articulo">2</div>
+                    <div>
+                        <h3>Valores de venta</h3>
+                        <p>Costos, precio y descuentos</p>
+                    </div>
+                </div>
+                <div id="contenido-valores-articulo">
+                    <div id="grupo-precios-articulo">
+                        <div id="campo-costo-articulo">
+                            <label for="costo-articulo">Cuánto costó <span aria-hidden="true">*</span></label>
+                            <input id="costo-articulo" name="costo" type="text" inputmode="decimal" placeholder="$ 0" required>
+                        </div>
+                        <div id="campo-precio-articulo">
+                            <label for="precio-articulo">Precio de venta <span aria-hidden="true">*</span></label>
+                            <input id="precio-articulo" name="precio" type="text" inputmode="decimal" placeholder="$ 0" required>
+                        </div>
+                    </div>
+                    <div id="grupo-descuento-articulo">
+                        <label>¿Aplica descuento?</label>
+                        <div id="opciones-descuento-articulo" data-options="discount">
+                            <button type="button" aria-pressed="true"><i class="fa-regular fa-circle-dot"></i> No</button>
+                            <button type="button" aria-pressed="false"><i class="fa-regular fa-circle"></i> Sí</button>
+                        </div>
+                        <div id="campo-descuento-articulo">
+                            <label for="porcentaje-descuento">Porcentaje de descuento</label>
+                            <input id="porcentaje-descuento" type="number" min="0" max="100" step="0.01" value="0" disabled required>
+                        </div>
+                    </div>
+                    <div>
+                        <label>Total</label>
+                        <input id="total-articulo" type="text" placeholder="Valor final calculado" readonly>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="tarjeta-estado-articulo">
+                <div id="cabecera-estado-articulo">
+                    <div id="numero-estado-articulo">3</div>
+                    <div>
+                        <h3>Estado</h3>
+                        <p>Disponibilidad en el catálogo</p>
+                    </div>
+                </div>
+                <div id="contenido-estado-articulo">
+                    <div id="botones-selector" data-options="status">
+                        <button type="button" aria-pressed="true"><i class="fa-regular fa-circle-dot"></i> Activo</button>
+                        <button type="button" aria-pressed="false"><i class="fa-regular fa-circle"></i> Inactivo</button>
+                    </div>
+                </div>
+            </section>
+            <div id="acciones-formulario-articulo">
+                <button type="button" id="cancelar-articulo">Cancelar</button>
+                <button type="submit"><i class="fa-solid fa-check"></i> Guardar artículo</button>
+            </div>
+        </form>
+    </main>
+    </div>
+    <script src="componentes/menu.js"></script>
+    <script src="componentes/funciones.js"></script>
+</body>
+</html>
