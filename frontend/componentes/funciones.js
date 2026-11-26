@@ -314,6 +314,20 @@ const contenedorEmpresas = document.getElementById('contenedor-empresas');
         ? `-${emp.dv}`
         : (emp.digito_verificacion !== undefined && emp.digito_verificacion !== null ? `-${emp.digito_verificacion}` : '');
       const ciudad = emp.ciudad || 'Colombia';
+      
+      const estadoDato = emp.activo !== undefined && emp.activo !== null
+        ? emp.activo
+        : emp.estado;
+      const valorEstado = typeof estadoDato === 'string'
+        ? estadoDato.trim().toLowerCase()
+        : estadoDato;
+      const empresaActiva = ![false, 0, 'false', '0', 'inactivo', 'inactiva', 'no'].includes(valorEstado);
+      const textoEstado = empresaActiva ? 'Activo' : 'Inactivo';
+      const claseEstado = empresaActiva
+        ? 'estado-empresa-activa'
+        : 'estado-empresa-inactiva';
+
+      
 
       const iniciales = nombre.trim().substring(0, 2).toUpperCase();
       const colorFondo = coloresAvatar[index % coloresAvatar.length];
@@ -324,7 +338,7 @@ const contenedorEmpresas = document.getElementById('contenedor-empresas');
         <div id="info-empresa-${index}">
           <div id="avatar-empresa-${index}" style="background-color: ${colorFondo};">${iniciales}</div>
           <div>
-            <h3 id="nombre-empresa-${index}">${nombre}</h3>
+            <h3 id="nombre-empresa-${index}">${nombre} <span class="${claseEstado}">${textoEstado}</span></h3>
             <p id="detalles-empresa-${index}">NIT ${nit}${dv} • ${ciudad}</p>
           </div>
         </div>
@@ -407,6 +421,7 @@ const formularioEmpresa = document.querySelector('form');
         const fechaApertura = document.getElementById('fecha_inicio_fiscal')?.value || null;
 
         const datosNuevaEmpresa = {
+          activo: document.getElementById('activo')?.value === 'true' ? true : false,
           razon_social: document.getElementById('razon_social')?.value || '',
           nombre_comercial: document.getElementById('nombre_comercial')?.value || '',
           tipo_identificacion: document.getElementById('tipo_identificacion')?.value || 'NIT',

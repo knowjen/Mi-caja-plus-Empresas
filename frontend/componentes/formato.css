@@ -666,6 +666,16 @@ input[readonly] {
     color: var(--verde-oscuro);
 }
 
+.estado-empresa-activa {
+  background: rgba(86, 163, 150, 0.18);
+  color: var(--verde-oscuro);
+}
+
+.estado-empresa-inactiva {
+  background: var(--fondo-pagina);
+  color: var(--azul-pizarra);
+}
+
 @media (max-width: 1023px) {
     .cuadricula-indicadores {
         grid-template-columns: 1fr 1fr;
