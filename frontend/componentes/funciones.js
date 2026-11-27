@@ -421,7 +421,9 @@ const formularioEmpresa = document.querySelector('form');
         const fechaApertura = document.getElementById('fecha_inicio_fiscal')?.value || null;
 
         const datosNuevaEmpresa = {
-          activo: document.getElementById('activo')?.value === 'true' ? true : false,
+          activo: document.getElementById('activo')
+            ? document.getElementById('activo').value === 'true'
+            : true,
           razon_social: document.getElementById('razon_social')?.value || '',
           nombre_comercial: document.getElementById('nombre_comercial')?.value || '',
           tipo_identificacion: document.getElementById('tipo_identificacion')?.value || 'NIT',
@@ -471,13 +473,27 @@ const formularioEmpresa = document.querySelector('form');
   const selectDepartamento = document.getElementById('departamento');
   const selectCiudad = document.getElementById('ciudad');
 
-  if (selectDepartamento && selectCiudad) {
+  if (selectDepartamento && selectCiudad && colombiaData) {
     Object.keys(colombiaData).sort().forEach(depto => {
       const option = document.createElement('option');
       option.value = depto;
       option.textContent = depto;
       selectDepartamento.appendChild(option);
     });
+
+    const departamentoInicial = selectDepartamento.dataset.valorInicial;
+    const ciudadInicial = selectCiudad.dataset.valorInicial;
+    if (departamentoInicial && colombiaData[departamentoInicial]) {
+      selectDepartamento.value = departamentoInicial;
+      colombiaData[departamentoInicial].sort().forEach(ciudad => {
+        const option = document.createElement('option');
+        option.value = ciudad;
+        option.textContent = ciudad;
+        selectCiudad.appendChild(option);
+      });
+      selectCiudad.value = ciudadInicial || '';
+      selectCiudad.disabled = false;
+    }
 
     selectDepartamento.addEventListener('change', function () {
       const deptoSeleccionado = this.value;
@@ -596,6 +612,8 @@ document.addEventListener("DOMContentLoaded", function () {
         campos.forEach(function (campo) {
             if (campo.tagName === "SELECT" || campo.type === "file") {
                 campo.disabled = bloquear;
+            } else if (campo.dataset.calculado === "true") {
+                campo.readOnly = true;
             } else {
                 campo.readOnly = bloquear;
             }
@@ -606,7 +624,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function iniciarEdicion() {
         valoresOriginales = {};
         campos.forEach(function (campo) {
-            valoresOriginales[campo.id] = campo.value;
+            if (campo.type !== "file") valoresOriginales[campo.id] = campo.value;
         });
         bloquearCampos(false);
         botonEditar.textContent = "Guardar cambios";
@@ -651,9 +669,43 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cancelar: restaura lo que había antes de editar
     botonCancelar.addEventListener("click", function () {
         campos.forEach(function (campo) {
-            if (campo.id in valoresOriginales) campo.value = valoresOriginales[campo.id];
+            if (campo.type === "file") {
+                campo.value = "";
+            } else if (campo.id !== "departamento" && campo.id !== "ciudad" && campo.id in valoresOriginales) {
+                campo.value = valoresOriginales[campo.id];
+            }
         });
+
+        const selectDepartamento = document.getElementById("departamento");
+        const selectCiudad = document.getElementById("ciudad");
+        if (selectDepartamento && selectCiudad) {
+            selectDepartamento.value = valoresOriginales.departamento || "";
+            selectDepartamento.dispatchEvent(new Event("change", { bubbles: true }));
+            selectCiudad.value = valoresOriginales.ciudad || "";
+        }
+
+        ["numero_identificacion", "dv", "clasificacion_minimo_cop", "clasificacion_maximo_cop"].forEach(function (id) {
+            const campo = document.getElementById(id);
+            if (campo) campo.dispatchEvent(new Event("input", { bubbles: true }));
+        });
+        const tipoIdentificacion = document.getElementById("tipo_identificacion");
+        if (tipoIdentificacion) tipoIdentificacion.dispatchEvent(new Event("change", { bubbles: true }));
+
+        if (textoImagenBalance) {
+            textoImagenBalance.textContent = "Haz clic aquí para seleccionar una imagen (PNG, JPG o WEBP)";
+        }
         terminarEdicion();
         nota.textContent = textoNota;
     });
+
+    const inputImagenBalance = document.getElementById("imagen_balance_general");
+    const textoImagenBalance = document.getElementById("texto-imagen-balance");
+    if (inputImagenBalance && textoImagenBalance) {
+        inputImagenBalance.addEventListener("change", function () {
+            const archivo = this.files && this.files[0];
+            textoImagenBalance.textContent = archivo
+                ? `Imagen seleccionada: ${archivo.name}`
+                : "Haz clic aquí para seleccionar una imagen (PNG, JPG o WEBP)";
+        });
+    }
 });

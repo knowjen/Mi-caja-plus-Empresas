@@ -382,11 +382,57 @@ main#contenedor-principal {
     }
 }
 
-/* Tipo + número + DV en una sola fila */
+/* Número de identificación y DV */
 .grupo-identificacion {
     display: grid;
     gap: 15px;
-    grid-template-columns: 2fr 2fr 1fr;
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+}
+
+.grupo-identificacion > small,
+.campo-formulario-ancho-completo {
+    grid-column: 1 / -1;
+}
+
+.grupo-rango-mipyme {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 767px) {
+    #form-informacion-empresa .cuadricula-campos {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #form-informacion-empresa .cuadricula-campos > *,
+    #form-informacion-empresa .grupo-identificacion > * {
+        min-width: 0;
+    }
+
+    #form-informacion-empresa .grupo-identificacion {
+        align-items: end;
+        grid-column: 1 / -1;
+        grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    }
+
+    #form-informacion-empresa .grupo-rango-mipyme {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    #form-informacion-empresa .campo-formulario input,
+    #form-informacion-empresa .campo-formulario select {
+        min-width: 0;
+    }
+
+    #form-informacion-empresa .encabezado-principal {
+        min-width: 0;
+    }
+
+    #form-informacion-empresa .encabezado-principal h2 {
+        overflow-wrap: anywhere;
+    }
 }
 
 /* INPUTS */
@@ -412,6 +458,67 @@ input:invalid:not(:placeholder-shown):not(:focus) {
 
 select {
     cursor: pointer;
+}
+
+[id*="__zona-carga-archivo__"] {
+    background-color: var(--fondo-input);
+    border: 2px dashed var(--azul-hielo);
+    border-radius: 8px;
+    color: var(--azul-pizarra);
+    cursor: pointer;
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+[id*="__zona-carga-archivo__"]:hover {
+    background-color: #EDF3F8;
+    border-color: var(--azul-oceano);
+}
+
+[id*="__resultado-mipyme-caja__"] {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+#clasificacion_mipyme_resultado {
+    background-color: #EEF3F7;
+    color: var(--azul-nocturno);
+    cursor: default;
+    flex: 1 1 240px;
+    min-width: 0;
+}
+
+#clasificacion_minimo_cop,
+#clasificacion_maximo_cop {
+    font-variant-numeric: tabular-nums;
+}
+
+#badge-tamano-mipyme {
+    background-color: var(--fondo-pagina);
+    border-radius: 999px;
+    color: var(--azul-pizarra);
+    flex-shrink: 0;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 8px 14px;
+    white-space: nowrap;
+}
+
+#detalle-rango-mipyme,
+#mensaje-error-dv,
+#mensaje-error-saldos {
+    color: var(--azul-pizarra);
+    font-size: 0.78rem;
+}
+
+#mensaje-error-dv,
+#mensaje-error-saldos {
+    color: #B42318;
 }
 
 /* Logotipo (zona de carga) */

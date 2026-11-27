@@ -66,11 +66,69 @@
                 </div>
 
                 <div class="cuadricula-campos">
-                    
+                    <div class="campo-formulario">
+                        <label for="razon_social">RAZÓN SOCIAL <span class="obligatorio">*</span></label>
+                        <input type="text" id="razon_social" name="razon_social" value="Soluciones Andinas S.A.S." maxlength="150" required>
+                    </div>
 
                     <div class="campo-formulario">
                         <label for="nombre_comercial">NOMBRE COMERCIAL</label>
-                        <input type="text" id="nombre_comercial" name="nombre_comercial" value="Soluciones Andinas">
+                        <input type="text" id="nombre_comercial" name="nombre_comercial" value="Soluciones Andinas" maxlength="100">
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="tipo_identificacion">TIPO DE IDENTIFICACIÓN</label>
+                        <select id="tipo_identificacion" name="tipo_identificacion">
+                            <option value="NIT" selected>NIT</option>
+                            <option value="CC">Cédula de Ciudadanía</option>
+                            <option value="CE">Cédula de Extranjería</option>
+                        </select>
+                    </div>
+
+                    <div class="grupo-identificacion">
+                        <div class="campo-formulario">
+                            <label for="numero_identificacion">NÚMERO DE IDENTIFICACIÓN <span class="obligatorio">*</span></label>
+                            <input type="text" id="numero_identificacion" name="numero_identificacion" value="901458782" inputmode="numeric" maxlength="11" pattern="[0-9]{1,11}" required>
+                        </div>
+                        <div class="campo-formulario campo-dv">
+                            <label for="dv">DV <span class="obligatorio">*</span></label>
+                            <input type="text" id="dv" name="dv" value="6" inputmode="numeric" maxlength="1" pattern="[0-9]" aria-describedby="mensaje-error-dv" required>
+                        </div>
+                        <small id="mensaje-error-dv" role="alert" hidden></small>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="pais">PAÍS</label>
+                        <input type="text" id="pais" name="pais" value="Colombia" readonly>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="departamento">DEPARTAMENTO <span class="obligatorio">*</span></label>
+                        <select id="departamento" name="departamento" data-valor-inicial="Bogotá D.C." required>
+                            <option value="" disabled selected>Selecciona un departamento...</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="ciudad">CIUDAD / MUNICIPIO <span class="obligatorio">*</span></label>
+                        <select id="ciudad" name="ciudad" data-valor-inicial="Bogotá D.C." required>
+                            <option value="" disabled selected>Selecciona primero un departamento...</option>
+                        </select>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="direccion">DIRECCIÓN <span class="obligatorio">*</span></label>
+                        <input type="text" id="direccion" name="direccion" value="Calle 93 # 14-26, Oficina 402" maxlength="200" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="telefono">TELÉFONO <span class="obligatorio">*</span></label>
+                        <input type="tel" id="telefono" name="telefono" value="3001234567" inputmode="numeric" minlength="10" maxlength="10" pattern="[0-9]{10}" required>
+                    </div>
+
+                    <div class="campo-formulario">
+                        <label for="correo_electronico">CORREO ELECTRÓNICO PRINCIPAL <span class="obligatorio">*</span></label>
+                        <input type="email" id="correo_electronico" name="correo_electronico" value="contabilidad@solucionesandinas.co" maxlength="254" required>
                     </div>
 
                     <div class="campo-formulario">
@@ -80,54 +138,48 @@
                             <option value="false">Inactivo</option>
                         </select>
                     </div>
+                </div>
+            </section>
 
-                    <div class="grupo-identificacion">
-                        <div class="campo-formulario">
-                            <label for="tipo_identificacion">TIPO DE IDENTIFICACIÓN</label>
-                            <select id="tipo_identificacion" name="tipo_identificacion">
-                                <option value="NIT" selected>NIT</option>
-                                <option value="CC">Cédula de Ciudadanía</option>
-                                <option value="CE">Cédula de Extranjería</option>
-                            </select>
+            <section class="tarjeta-blanca" id="tarjeta-clasificacion-mipyme">
+                <div class="encabezado-tarjeta">
+                    <div class="icono-tarjeta">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19V5M4 19h16M8 15l3-4 3 2 5-7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Clasificación MiPyME</h3>
+                        <p>Sector económico y rango de ingresos de la empresa</p>
+                    </div>
+                </div>
+                <div class="cuadricula-campos">
+                    <div class="campo-formulario">
+                        <label for="sector_economico_mipyme">SECTOR ECONÓMICO <span class="obligatorio">*</span></label>
+                        <select id="sector_economico_mipyme" name="sector_economico_mipyme" required>
+                            <option value="Manufactura">Manufactura</option>
+                            <option value="Servicios" selected>Servicios</option>
+                            <option value="Comercio">Comercio</option>
+                        </select>
+                    </div>
+                    <div class="campo-formulario campo-formulario-ancho-completo">
+                        <label for="clasificacion_mipyme_resultado">CLASIFICACIÓN / TAMAÑO DE EMPRESA</label>
+                        <div id="role__resultado-mipyme-caja__informacion_empresa">
+                            <input type="text" id="clasificacion_mipyme_resultado" value="Ingresa los límites para calcular" readonly data-calculado="true">
+                            <span id="badge-tamano-mipyme">Sin calcular</span>
                         </div>
-
-                        <div class="campo-formulario">
-                            <label for="numero_identificacion">NÚMERO DE IDENTIFICACIÓN <span class="obligatorio">*</span></label>
-                            <input type="text" id="numero_identificacion" name="numero_identificacion" value="901458782" required>
+                        <div class="grupo-rango-mipyme">
+                            <div class="campo-formulario">
+                                <label for="clasificacion_minimo_cop">MÍNIMO DEL RANGO (COP) <span class="obligatorio">*</span></label>
+                                <input type="text" id="clasificacion_minimo_cop" name="clasificacion_minimo_cop" value="100.000.000" inputmode="numeric" pattern="[0-9]{1,3}(\.[0-9]{3})*" required>
+                            </div>
+                            <div class="campo-formulario">
+                                <label for="clasificacion_maximo_cop">MÁXIMO DEL RANGO (COP)</label>
+                                <input type="text" id="clasificacion_maximo_cop" name="clasificacion_maximo_cop" value="800.000.000" inputmode="numeric" pattern="[0-9]{1,3}(\.[0-9]{3})*">
+                            </div>
                         </div>
-
-                        <div class="campo-formulario campo-dv">
-                            <label for="dv">DV <span class="obligatorio">*</span></label>
-                            <input type="text" id="dv" name="dv" value="1" maxlength="1" required>
-                        </div>
+                        <small id="detalle-rango-mipyme"></small>
                     </div>
-
-                    <div class="campo-formulario">
-                        <label for="ciudad">CIUDAD <span class="obligatorio">*</span></label>
-                        <input type="text" id="ciudad" name="ciudad" value="Bogotá D.C." required>
-                    </div>
-
-                    <div class="campo-formulario">
-                        <label for="direccion">DIRECCIÓN <span class="obligatorio">*</span></label>
-                        <input type="text" id="direccion" name="direccion" value="Calle 93 # 14-26, Oficina 402" required>
-                    </div>
-
-                    <div class="campo-formulario">
-                        <label for="telefono">TELÉFONO</label>
-                        <input type="tel" id="telefono" name="telefono" value="+57 601 745 2380">
-                    </div>
-
-                    <div class="campo-formulario">
-                        <label for="correo_electronico">CORREO ELECTRÓNICO PRINCIPAL <span class="obligatorio">*</span></label>
-                        <input type="email" id="correo_electronico" name="correo_electronico" value="contabilidad@solucionesandinas.co" required>
-                    </div>
-
-                    <div class="campo-formulario">
-                        <label for="fecha_saldos">FECHA DE SALDOS INICIALES <span class="obligatorio">*</span></label>
-                        <input type="text" id="fecha_saldos" name="fecha_saldos" value="01/01/2025" required>
-                    </div>
-
-                    
                 </div>
             </section>
 
@@ -146,26 +198,55 @@
                 </div>
 
                 <div class="cuadricula-campos">
-
                     <div class="campo-formulario">
-                        <label for="razon_social">RAZÓN SOCIAL / NOMBRE <span class="obligatorio">*</span></label>
-                        <input type="text" id="razon_social" name="razon_social" value="Soluciones Andinas S.A.S." required>
+                        <label for="codigo_actividad_economica">CÓDIGO DE ACTIVIDAD ECONÓMICA (CIIU) <span class="obligatorio">*</span></label>
+                        <input type="text" id="codigo_actividad_economica" name="codigo_actividad_economica" value="6201 — Desarrollo de sistemas informáticos" maxlength="120" required>
                     </div>
 
                     <div class="campo-formulario">
-                        <label for="codigo_ciiu">CÓDIGO DE ACTIVIDAD ECONÓMICA (CIIU) <span class="obligatorio">*</span></label>
-                        <input type="text" id="codigo_ciiu" name="codigo_ciiu" value="6201 — Desarrollo de sistemas informáticos" required>
-                    </div>
-
-                    <div class="campo-formulario">
-                        <label for="regimen_fiscal">RÉGIMEN / RESPONSABILIDAD FISCAL</label>
-                        <select id="regimen_fiscal" name="regimen_fiscal">
-                            <option value="responsable_iva" selected>Responsable de IVA</option>
-                            <option value="no_responsable_iva">No responsable de IVA</option>
-                            <option value="regimen_simple">Régimen Simple de Tributación</option>
+                        <label for="regimen_fiscal">RÉGIMEN / RESPONSABILIDAD FISCAL <span class="obligatorio">*</span></label>
+                        <select id="regimen_fiscal" name="regimen_fiscal" required>
+                            <option value="ORDINARIO" selected>Régimen Ordinario</option>
+                            <option value="SIMPLE_RST">Régimen Simple de Tributación (RST)</option>
+                            <option value="RTE_ESAL">Régimen Tributario Especial (RTE)</option>
+                            <option value="ESAL">Entidades sin ánimo de lucro (ESAL)</option>
                         </select>
                     </div>
+                    <div class="campo-formulario">
+                        <label for="fecha_inicio_fiscal">FECHA DE INICIO FISCAL / APERTURA <span class="obligatorio">*</span></label>
+                        <input type="date" id="fecha_inicio_fiscal" name="fecha_inicio_fiscal" value="2025-01-01" required>
+                    </div>
+                </div>
+            </section>
 
+            <section class="tarjeta-blanca" id="tarjeta-saldos-iniciales">
+                <div class="encabezado-tarjeta">
+                    <div class="icono-tarjeta">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 19h16M6 16V9m4 7V5m4 11v-4m4 4V7"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3>Saldos iniciales</h3>
+                        <p>Débitos, créditos e imagen del balance general</p>
+                    </div>
+                </div>
+                <div class="cuadricula-campos">
+                    <div class="campo-formulario">
+                        <label for="total_debitos">TOTAL DÉBITOS (COP)</label>
+                        <input type="number" id="total_debitos" name="total_debitos" min="0" step="1" placeholder="Ej. 5000000">
+                    </div>
+                    <div class="campo-formulario">
+                        <label for="total_creditos">TOTAL CRÉDITOS (COP)</label>
+                        <input type="number" id="total_creditos" name="total_creditos" min="0" step="1" placeholder="Ej. 5000000">
+                    </div>
+                    <div class="campo-formulario campo-formulario-ancho-completo">
+                        <label for="imagen_balance_general">IMAGEN DEL BALANCE GENERAL</label>
+                        <label for="imagen_balance_general" id="role__zona-carga-archivo__informacion_empresa">
+                            <span id="texto-imagen-balance">Haz clic aquí para seleccionar una imagen (PNG, JPG o WEBP)</span>
+                        </label>
+                        <input type="file" id="imagen_balance_general" name="imagen_balance_general" accept="image/png,image/jpeg,image/webp" hidden>
+                    </div>
                 </div>
             </section>
 
@@ -209,6 +290,7 @@
     </main>
 
 
+  <script src="componentes/municipios.js"></script>
   <script src="componentes/menu.js"></script>
   <script src="componentes/funciones.js"></script>
 </body>
