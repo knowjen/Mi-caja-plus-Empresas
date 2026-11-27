@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artículos - Mi Caja PLUS</title>
+    <link rel="stylesheet" href="componentes/formato.css">
+</head>
+<body class="interfaz-empresas page-servicios-producto">
+    <aside id="menu-lateral"></aside>
+    <div id="role__wrapper-principal__servicios_producto__1">
+        <header id="barra-superior">
+            <div>
+                <button type="button" id="boton-menu" aria-label="Abrir menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="contenedor-titulo-pagina">
+                <span>Módulo de empresas</span>
+                <h1>Artículos</h1>
+            </div>
+        </header>
+        <main id="contenedor-principal">
+        <div id="encabezado-pagina">
+            <div id="titulos-listado-articulos">
+                <span>CATÁLOGO COMERCIAL</span>
+                <h2>Productos y servicios</h2>
+                <p>Consulta precios, estado y configuración de venta.</p>
+            </div>
+            <a href="añadir_produc_servi.html" id="agregar-articulo">+ Añadir artículo</a>
+        </div>
+        <div id="mensaje-articulos" role="status" aria-live="polite" hidden></div>
+        
+        <section id="tarjeta-filtros">
+            <div id="busqueda-articulos">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M17.2587 17.2593L21.2488 21.2494M19.75 11.2486C19.75 15.9419 15.9444 19.7465 11.25 19.7465C6.55558 19.7465 2.75 15.9419 2.75 11.2486C2.75 6.55528 6.55558 2.75061 11.25 2.75061C15.9444 2.75061 19.75 6.55528 19.75 11.2486Z" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <input id="buscar-articulos" type="search" placeholder="Buscar por nombre o código..." aria-label="Buscar artículos por nombre o código">
+            </div>
+            <div id="filtro-tipo-articulo">
+                <label><i class="fa-solid fa-filter"></i> TIPO</label>
+                <div class="grupo-selectores">
+                    <button type="button" class="btn-selector activo" data-tipo-filter="Todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="btn-selector" data-tipo-filter="Producto" aria-pressed="false">Producto</button>
+                    <button type="button" class="btn-selector" data-tipo-filter="Servicio" aria-pressed="false">Servicio</button>
+                </div>
+            </div>
+            <div id="filtro-estado-articulo">
+                <label>ESTADO</label>
+                <div class="grupo-selectores">
+                    <button type="button" class="btn-selector activo" data-estado-filter="Todos" aria-pressed="true">Todos</button>
+                    <button type="button" class="btn-selector" data-estado-filter="Activo" aria-pressed="false">Activo</button>
+                    <button type="button" class="btn-selector" data-estado-filter="Inactivo" aria-pressed="false">Inactivo</button>
+                </div>
+            </div>
+        </section>
+        <div id="encabezado-lista">
+            <div>
+                <h3>Listado de artículos</h3>
+                <span id="contador-articulos">4 registros</span>
+            </div>
+            <div><span>Selecciona un artículo para ver el detalle</span></div>
+        </div>
+        
+        <section id="lista-articulos">
+            <article id="articulo-pos-104">
+                
+                <div>
+                    <div>
+                        <h4>Impresora térmica POS</h4>
+                        <span data-status="Activo">Activo</span>
+                    </div>
+                    <p>POS-104 · Producto</p>
+                </div>
+                <span>$ 680.000</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.62012 18.25L15.8701 12L9.62012 5.75" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </article>
+            <article id="articulo-lec-220">
+                
+                <div>
+                    <div>
+                        <h4>Lector de código de barras</h4>
+                        <span data-status="Activo">Activo</span>
+                    </div>
+                    <p>LEC-220 · Producto</p>
+                </div>
+                <span>$ 315.000</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.62012 18.25L15.8701 12L9.62012 5.75" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </article>
+            <article id="articulo-ser-015">
+                
+                <div>
+                    <div>
+                        <h4>Instalación y configuración</h4>
+                        <span data-status="Activo">Activo</span>
+                    </div>
+                    <p>SER-015 · Servicio</p>
+                </div>
+                <span>$ 180.000</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.62012 18.25L15.8701 12L9.62012 5.75" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </article>
+            <article id="articulo-ins-080">
+                
+                <div>
+                    <div>
+                        <h4>Rollo térmico 80 mm x 10</h4>
+                        <span data-status="Inactivo">Inactivo</span>
+                    </div>
+                    <p>INS-080 · Producto</p>
+                </div>
+                <span>$ 92.000</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.62012 18.25L15.8701 12L9.62012 5.75" stroke="#323544" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </article>
+        </section>
+        </main>
+    </div>
+    <script src="componentes/menu.js"></script>
+    <script src="componentes/funciones.js"></script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle Artículo - Mi Caja PLUS</title>
+    <link rel="stylesheet" href="componentes/formato.css">
+</head>
+<body class="interfaz-empresas page-detalle-producto" data-menu="servicios_producto.html">
+    <aside id="menu-lateral"></aside>
+    <div id="role__wrapper-principal__detalle_producto__1">
+    <header id="barra-superior">
+        <div>
+            <button type="button" id="boton-menu" aria-label="Abrir menú">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 6L20 6M4 18L20 18M4 12L20 12" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div class="contenedor-titulo-pagina">
+                <span>Módulo de empresas</span>
+                <h1>Detalle del artículo</h1>
+        </div>
+    </header>
+    <main id="contenedor-principal">
+        <div id="navegacion-retorno-articulo">
+            <a href="servicios_producto.html" id="boton-volver-articulos">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M15 5L8 12L15 19" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                Volver a Productos/servicios
+            </a>
+        </div>
+        <div id="encabezado-pagina">
+            <span>DETALLE DEL ARTÍCULO</span>
+            <h2 id="nombre-articulo-detalle">Impresora térmica POS</h2>
+            <p id="resumen-articulo-detalle">Producto · Activo · Código: POS-104</p>
+            
+        </div>
+        <div id="mensaje-articulos" role="status" aria-live="polite" hidden></div>
+        
+        <section id="informacion-articulo">
+            <div id="cabecera-informacion-articulo">
+                <div><i class="fa-solid fa-box-open"></i></div>
+                <div id="titulo-informacion-articulo">
+                    <h3>Información del artículo</h3>
+                    <p>Identificación y clasificación comercial</p>
+                </div>
+            </div>
+            <div id="datos-informacion-articulo">
+                <div>
+                    <label>CÓDIGO DEL ÍTEM</label>
+                    <p id="codigo-articulo-detalle">POS-104</p>
+                </div>
+                <div>
+                    <label>NOMBRE</label>
+                    <p id="nombre-articulo-dato">Impresora térmica POS</p>
+                </div>
+                <div>
+                    <label>DESCRIPCIÓN</label>
+                    <p id="descripcion-articulo-detalle">Impresora térmica de 80 mm con conexión USB y Ethernet.</p>
+                </div>
+                <div>
+                    <label>TIPO</label>
+                    <p id="tipo-articulo-detalle">PRODUCTO</p>
+                </div>
+                <div>
+                    <label>SUBCUENTA</label>
+                    <p id="subcuenta-articulo-detalle">143505</p>
+                </div>
+                <div>
+                    <label>ESTADO</label>
+                    <p id="estado-articulo-detalle">ACTIVO</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="precios">
+            <div id="cabecera-precios-articulo">
+                <div><i class="fa-solid fa-receipt"></i></div>
+                <div id="titulo-precios-articulo">
+                    <h3>Precios y descuento</h3>
+                    <p>Valores configurados para la venta</p>
+                </div>
+            </div>
+            <div id="datos-precios-articulo">
+                <div>
+                    <label>CUÁNTO COSTÓ</label>
+                    <p id="costo-articulo-detalle">$ 495.000</p>
+                </div>
+                <div>
+                    <label>PRECIO DE VENTA</label>
+                    <p id="precio-articulo-detalle">$ 680.000</p>
+                </div>
+                <div>
+                    <label>APLICA DESCUENTO</label>
+                    <p id="aplica-descuento-detalle">Sí</p>
+                </div>
+                <div>
+                    <label>DESCUENTO</label>
+                    <p id="descuento-articulo-detalle">5%</p>
+                </div>
+                <div>
+                    <label>TOTAL</label>
+                    <p id="total-articulo-detalle">$ 646.000</p>
+                </div>
+            </div>
+        </section>
+        <div class="acciones-detalle">
+                <button type="button" id="editar-articulo">Editar</button>
+                <button type="button" id="cambiar-estado-articulo">Inhabilitar</button>
+            </div>
+       
+   
+    </main>
+    </div>
+    <script src="componentes/menu.js"></script>
+    <script src="componentes/funciones.js"></script>
+</body>
+</html>
